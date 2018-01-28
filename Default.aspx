@@ -14,6 +14,15 @@
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/ckeditor@4.8.0/ckeditor.js"></script>
 	<script type="text/javascript">
+		jQuery.ajaxSetup({
+			type: "POST",
+			dataType: "json",
+			contentType: "application/json; charset=UTF-8",
+			processData: false,
+			async: true,
+			cache: false
+		});
+
 		(function () {
 			"use strict";
 
