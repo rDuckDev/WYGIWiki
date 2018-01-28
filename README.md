@@ -1,1 +1,1 @@
-# WikIWYG
+# WYGIWiki
