@@ -39,8 +39,7 @@
 			var DOM = {};
 
 			DOM.input = CKEDITOR.replace("editor", {
-				format_nowiki: { name: "No wiki", element: "nowiki" }, // <nowiki>
-				format_tags: "p;h2;h3;h4;nowiki",
+				format_tags: "p;h2;h3;h4",
 				removeButtons: "",
 				skin: "bootstrapck,https://cdn.jsdelivr.net/gh/Kunstmaan/BootstrapCK4-Skin@1.0.0/skins/bootstrapck/",
 				toolbar: [
