@@ -42,16 +42,17 @@
 				format_nowiki: { name: "No wiki", element: "nowiki" }, // <nowiki>
 				format_tags: "p;h2;h3;h4;nowiki",
 				removeButtons: "",
-				toolbar: [[
-					"Undo", "Redo", "-",
-					"Cut", "Copy", "Paste", "PasteText", "-",
-					"Format", "Bold", "Italic", "-", "RemoveFormat", "-",
-					"BulletedList", "NumberedList", "Outdent", "Indent", "-",
-					"Link", "Unlink", "-",
-					"Image", "Table", "SpecialChar", "-",
-					"Source", "-",
-					"Maximize", "About"
-				]],
+				skin: "bootstrapck,https://cdn.jsdelivr.net/gh/Kunstmaan/BootstrapCK4-Skin@1.0.0/skins/bootstrapck/",
+				toolbar: [
+					[ "Undo", "Redo" ],
+					[ "Cut", "Copy", "Paste", "PasteText" ],
+					[ "Format", "Bold", "Italic", "-", "RemoveFormat" ],
+					[ "BulletedList", "NumberedList", "Outdent", "Indent" ],
+					[ "Link", "Unlink" ],
+					["Image", "Table", "SpecialChar" ],
+					[ "Source" ],
+					[ "Maximize", "About" ]
+				],
 				height: "500px"
 			});
 		} ());
