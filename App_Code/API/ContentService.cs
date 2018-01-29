@@ -54,6 +54,8 @@ public class ContentService : IContentService
 		reader.Close();
 		cmd.Close();
 
+		output = output.Replace("{|", "{| class=\"wikitable\"");
+
 		File.Delete(filePath);
 
 		return output;
