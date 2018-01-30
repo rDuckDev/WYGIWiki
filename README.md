@@ -4,7 +4,7 @@ A lightweight WYSIWYG editor for basic MediaWiki markup.
 
 This project is not a replacement for powerful extensions like [VisualEditor](https://www.mediawiki.org/wiki/Extension:VisualEditor).
 
-## Scope
+## Usage
 
 * Editing very basic MediaWiki content
 * Teaching new users MediaWiki markup
@@ -36,6 +36,10 @@ This project is not a replacement for powerful extensions like [VisualEditor](ht
 * [Bootstrap 4](http://getbootstrap.com/): UI and theme
 * [WikiEditor](https://www.mediawiki.org/wiki/Extension:WikiEditor): UI inspiration
 * [jQuery](http://jquery.com/): Ajax and keeping things simple
+
+## Notes
+
+* Be sure to place [pandoc.exe](https://github.com/jgm/pandoc/releases/download/2.1.1/pandoc-2.1.1-windows.zip) in ~/Bin before deploying
 
 ## License
 
