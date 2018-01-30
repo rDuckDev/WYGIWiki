@@ -16,6 +16,8 @@
 	function convertToWiki () { convertContent("html"); }
 	function convertToHTML () { convertContent("wiki"); }
 	function convertContent (currentFormat) {
+		var currentDialog = DOM.dialog.contents;
+
 		var editor = DOM.dialog.editor,
 			url = editor.config.customValues.convert_url,
 			data = { obj: {} },
@@ -24,7 +26,7 @@
 		if (!url || !currentFormat) return;
 
 		if (currentFormat === "html") data.obj.htmlContent = editor.getData();
-		if (currentFormat === "wiki") data.obj.wikiContent = DOM.dialog.contents.toHTML.wikiInput.getValue();
+		if (currentFormat === "wiki") data.obj.wikiContent = currentDialog.toHTML.wikiInput.getValue();
 
 		if (!data.obj.htmlContent && !data.obj.wikiContent) {
 			if (currentFormat === "html") {
@@ -35,11 +37,16 @@
 			if (currentFormat === "wiki") {
 				alert("Please enter something into the textbox first.");
 
-				DOM.dialog.contents.toHTML.wikiInput.focus();
+				currentDialog.toHTML.wikiInput.focus();
 			}
 
 			return;
 		}
+
+		// disable buttons while content is submitting
+		// in order to prevent multiple submissions
+		currentDialog.toHTML.submitWiki.disable();
+		currentDialog.toWiki.submitHTML.disable();
 
 		jQuery.ajax({
 			url: url,
@@ -47,12 +54,15 @@
 		}).done(function (data) {
 			var value = data.ConvertContentResult;
 
-			if (currentFormat === "html") DOM.dialog.contents.toWiki.wikiOutput.setValue(value);
+			if (currentFormat === "html") currentDialog.toWiki.wikiOutput.setValue(value);
 			if (currentFormat === "wiki") {
 				editor.setData(value);
 
 				CKEDITOR.dialog.getCurrent().hide();
 			}
+		}).always(function () {
+			currentDialog.toHTML.submitWiki.enable();
+			currentDialog.toWiki.submitHTML.enable();
 		});
 	}
 	CKEDITOR.plugins.add("wygiwiki", {
