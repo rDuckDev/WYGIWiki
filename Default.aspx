@@ -51,14 +51,13 @@
 				extraPlugins: "wygiwiki",
 				skin: "bootstrapck,https://cdn.jsdelivr.net/gh/Kunstmaan/BootstrapCK4-Skin@1.0.0/skins/bootstrapck/",
 				toolbar: [
-					[ "Wygiwiki" ],
 					[ "Undo", "Redo"],
 					[ "Cut", "Copy", "Paste", "PasteText" ],
 					[ "Format", "Bold", "Italic", "-", "RemoveFormat" ],
 					[ "BulletedList", "NumberedList", "Outdent", "Indent" ],
 					[ "Link", "Unlink" ],
-					[ "Source" ],
 					[ "Image", "Table", "SpecialChar" ],
+					[ "Wygiwiki", "-", "Source" ],
 					[ "Maximize", "About" ]
 				],
 				height: "500px"
