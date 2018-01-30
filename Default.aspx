@@ -57,8 +57,8 @@
 					[ "Format", "Bold", "Italic", "-", "RemoveFormat" ],
 					[ "BulletedList", "NumberedList", "Outdent", "Indent" ],
 					[ "Link", "Unlink" ],
-					["Image", "Table", "SpecialChar" ],
 					[ "Source" ],
+					[ "Image", "Table", "SpecialChar" ],
 					[ "Maximize", "About" ]
 				],
 				height: "500px"
