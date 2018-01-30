@@ -11,9 +11,8 @@
 	<title>WYGIWiki</title>
 
 	<style>
-		.cke_dialog_ui_input_textarea {
-			height: 330px !important;
-		}
+		.cke_dialog_ui_input_textarea { height: 330px !important; }
+		.cke_button__wygiwiki_label { display: inline !important; }
 	</style>
 </head>
 <body>
