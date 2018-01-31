@@ -16,7 +16,7 @@
 	</style>
 </head>
 <body>
-	<nav class="navbar navbar-dark bg-primary">
+	<nav class="navbar navbar-dark bg-dark">
 		<span class="navbar-brand">
 			WYGI<span class="text-warning">Wiki</span>
 		</span>
