@@ -53,9 +53,8 @@
 					[ "Cut", "Copy", "Paste", "PasteText" ],
 					[ "Format", "Bold", "Italic", "-", "RemoveFormat" ],
 					[ "BulletedList", "NumberedList", "Outdent", "Indent" ],
-					[ "Link", "Unlink" ],
-					[ "Image", "Table", "SpecialChar" ],
-					[ "Source", "-", "Wygiwiki" ],
+					[ "Link", "Unlink", "-", "Image", "Table", "SpecialChar" ],
+					[ "Source" ], [ "Wygiwiki" ],
 					[ "Maximize", "About" ]
 				],
 				height: "500px"
