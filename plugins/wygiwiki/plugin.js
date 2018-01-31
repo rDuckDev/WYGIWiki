@@ -60,7 +60,7 @@
 			}],
 			onLoad: function () { DOM.dialog = this._; },
 			onShow: convertContent,
-			buttons: []
+			buttons: [ CKEDITOR.dialog.okButton ]
 		}
 	});
 } ());
