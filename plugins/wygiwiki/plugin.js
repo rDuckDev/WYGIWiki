@@ -6,9 +6,8 @@
 	const dialogTitle = "Convert markup";
 
 	// dialog controls
-	var wikiOutput = { type: "textarea", id: "wikiOutput", onLoad: setReadOnly };
+	var wikiOutput = { type: "textarea", id: "wikiOutput" };
 
-	function setReadOnly () { this.getInputElement().setAttribute("readOnly", true); }
 	function convertContent () {
 		var currentDialog = DOM.dialog.contents;
 
