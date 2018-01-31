@@ -60,6 +60,8 @@
 				],
 				height: "500px"
 			});
+
+			jQuery(window).on("beforeunload", function () { return "Content you entered will not be saved."; });
 		} ());
 	</script>
 </body>
