@@ -42,9 +42,7 @@
 		(function () {
 			"use strict";
 
-			var DOM = {};
-
-			DOM.input = CKEDITOR.replace("editor", {
+			CKEDITOR.replace("editor", {
 				format_tags: "p;h2;h3;h4",
 				removeButtons: "",
 				customValues: { convert_url: "/api/content.svc/ConvertContent" },
