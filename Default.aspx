@@ -57,7 +57,7 @@
 					[ "BulletedList", "NumberedList", "Outdent", "Indent" ],
 					[ "Link", "Unlink" ],
 					[ "Image", "Table", "SpecialChar" ],
-					[ "Wygiwiki", "-", "Source" ],
+					[ "Source", "-", "Wygiwiki" ],
 					[ "Maximize", "About" ]
 				],
 				height: "500px"
