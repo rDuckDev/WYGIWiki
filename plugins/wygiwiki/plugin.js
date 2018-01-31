@@ -6,7 +6,8 @@
 	const dialogTitle = "Convert markup";
 
 	// dialog controls
-	var wikiOutput = { type: "textarea", id: "wikiOutput" };
+	var wikiOutput = { type: "textarea", id: "wikiOutput" },
+		loadingMessage = { type: "html", id: "loadingMessage", html: "<span><img src='/plugins/wygiwiki/icons/spinner.gif' style='width:12px;height:12px;' /> Loading</span>" };
 
 	function convertContent () {
 		var currentDialog = DOM.dialog.contents;
@@ -25,13 +26,18 @@
 			return;
 		}
 
+		// make sure the loading message is visible
+		currentDialog.convertContent.loadingMessage.getElement().show();
+
 		jQuery.ajax({
 			url: url,
 			data: JSON.stringify(data)
 		}).done(function (data) {
 			var value = data.ConvertContentResult;
 
-			currentDialog.toWiki.wikiOutput.setValue(value);
+			currentDialog.convertContent.loadingMessage.getElement().hide();
+
+			currentDialog.convertContent.wikiOutput.setValue(value);
 		});
 	}
 	CKEDITOR.plugins.add("wygiwiki", {
@@ -48,9 +54,9 @@
 		return {
 			title: dialogTitle,
 			contents: [{
-				id: "toWiki",
+				id: "convertContent",
 				label: "To MediaWiki",
-				elements: [wikiOutput]
+				elements: [loadingMessage, wikiOutput]
 			}],
 			onLoad: function () { DOM.dialog = this._; },
 			onShow: convertContent,
