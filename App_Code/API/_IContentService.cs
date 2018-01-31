@@ -15,6 +15,4 @@ public class Content
 {
 	[DataMember]
 	public string htmlContent { get; set; }
-	[DataMember]
-	public string wikiContent { get; set; }
 }

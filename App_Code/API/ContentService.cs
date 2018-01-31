@@ -14,27 +14,12 @@ public class ContentService : IContentService
 
 	public string ConvertContent(Content obj)
 	{
-		if (String.IsNullOrEmpty(obj.htmlContent) &&
-			String.IsNullOrEmpty(obj.wikiContent)) return "";
-
-		string rawInput = "",
-			fromFormat = "",
-			toFormat = "";
-
-		if (!String.IsNullOrEmpty(obj.htmlContent)) {
-			rawInput = obj.htmlContent;
-			fromFormat = "html";
-			toFormat = "mediawiki";
-		} else {
-			rawInput = obj.wikiContent;
-			fromFormat = "mediawiki";
-			toFormat = "html";
-		}
+		if (String.IsNullOrEmpty(obj.htmlContent)) return "";
 
 		string fileName = String.Format("{0}.txt", Guid.NewGuid().ToString());
 		string fileDirectory = HttpContext.Current.Server.MapPath("~/temp");
 		string filePath = HttpContext.Current.Server.MapPath(String.Format("~/temp/{0}", fileName));
-		string[] input = rawInput.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+		string[] input = obj.htmlContent.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
 
 		if (!Directory.Exists(fileDirectory)) Directory.CreateDirectory(fileDirectory);
 
@@ -44,7 +29,7 @@ public class ContentService : IContentService
 
 		cmd.StartInfo.WorkingDirectory = HttpContext.Current.Server.MapPath("~/Bin");
 		cmd.StartInfo.FileName = "cmd.exe";
-		cmd.StartInfo.Arguments = String.Format("/c pandoc -f {0} -t {1} ../temp/{2}", fromFormat, toFormat, fileName);
+		cmd.StartInfo.Arguments = String.Format("/c pandoc -f html -t mediawiki ../temp/{0}", fileName);
 		cmd.StartInfo.CreateNoWindow = true;
 		cmd.StartInfo.UseShellExecute = false;
 		cmd.StartInfo.RedirectStandardInput = true;
