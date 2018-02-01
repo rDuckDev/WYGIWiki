@@ -46,6 +46,7 @@
 				removeButtons: "",
 				customValues: { convert_url: "/api/content.svc/ConvertContent" },
 				extraPlugins: "wygiwiki",
+				skin: "moono",
 				toolbar: [
 					[ "Undo", "Redo"],
 					[ "Cut", "Copy", "Paste", "PasteText" ],
