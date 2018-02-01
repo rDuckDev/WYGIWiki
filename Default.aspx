@@ -19,6 +19,9 @@
 		<a href="https://github.com/rDuckDev/WYGIWiki" target="_blank" class="navbar-brand">
 			WYGI<span class="text-warning">Wiki</span>
 		</a>
+		<div class="form-inline">
+			<input id="wikiURL" type="text" size="60" class="form-control text-center" placeholder="Main_Page URL" />
+		</div>
 	</nav>
 	<textarea id="editor"></textarea>
 	<div class="text-muted text-center my-1">
@@ -42,11 +45,13 @@
 			"use strict";
 
 				removeButtons: "",
-				customValues: { convert_url: "/api/content.svc/ConvertContent" },
-			const EDITOR_KEY = "EditorContent";
+			const EDITOR_KEY = "EditorContent",
+				URL_KEY = "WikiURL",
+				defaultWikiURL = "en.wikipedia.org/wiki/Main_Page";
 
 			var DOM = {};
 
+			DOM.wikiURL = jQuery("#wikiURL");
 			DOM.editor = CKEDITOR.replace("editor", {
 				format_nowiki: { name: "No wiki", element: "nowiki" }, // <nowiki>
 				format_tags: "p;h2;h3;h4;nowiki",
@@ -61,14 +66,33 @@
 					[ "Source" ], [ "Wygiwiki" ],
 					[ "Maximize", "About" ]
 				],
+				customValues: {
+					api_url: "/api/content.svc/ConvertContent",
+					wiki_url: localStorage.getItem(URL_KEY) || defaultWikiURL
+				},
 				height: "500px"
 			});
 
+			function updateURL () {
+				var sender = jQuery(this),
+					value = sender.val();
+
+				value = value.replace("https://", "").replace("http://", "").trim() || defaultWikiURL;
+
+				sender.val(value);
+
+				DOM.editor.config.customValues.wiki_url = value;
+			}
+
 			jQuery(document).ready(function () {
 				DOM.editor.setData(localStorage.getItem(EDITOR_KEY));
+				DOM.wikiURL.val(localStorage.getItem(URL_KEY) || defaultWikiURL);
+
+				DOM.wikiURL.on("change", updateURL);
 			});
 			jQuery(window).on("beforeunload", function () {
 				localStorage.setItem(EDITOR_KEY, DOM.editor.getData());
+				localStorage.setItem(URL_KEY, DOM.wikiURL.val());
 			});
 		} ());
 	</script>

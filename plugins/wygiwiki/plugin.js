@@ -9,14 +9,29 @@
 	var wikiOutput = { type: "textarea", id: "wikiOutput", rows: 20, cols: 30 },
 		loadingMessage = { type: "html", id: "loadingMessage", html: "<span><img src='/plugins/wygiwiki/icons/spinner.gif' style='width:12px;height:12px;' /> Loading</span>" };
 
+	function formatWikiURL (url) {
+		// tweak the URL for easier regex matching of internal links
+		return url.toLowerCase()
+			.replace("https://", "")
+			.replace("http://", "")
+			.replace("main_page", "")
+	}
+	function fixInternalLinks (content, url) {
+		if (!url) return content;
+
+		var localURL = new RegExp("(https*://)*" + url, "gi");
+		
+		return content.replace(localURL, "");
+	}
 	function convertContent () {
 		var currentDialog = DOM.dialog.contents;
 
 		var editor = DOM.dialog.editor,
-			url = editor.config.customValues.convert_url,
-			data = { obj: { htmlContent: editor.getData() } };
+			apiURL = editor.config.customValues.api_url,
+			wikiURL = formatWikiURL(editor.config.customValues.wiki_url),
+			data = { obj: { htmlContent: fixInternalLinks(editor.getData(), wikiURL) } };
 
-		if (!url) return;
+		if (!apiURL) return;
 
 		if (!data.obj.htmlContent) {
 			CKEDITOR.dialog.getCurrent().hide();
@@ -30,7 +45,7 @@
 		currentDialog.convertContent.loadingMessage.getElement().show();
 
 		jQuery.ajax({
-			url: url,
+			url: apiURL,
 			data: JSON.stringify(data)
 		}).done(function (data) {
 			var value = data.ConvertContentResult;
