@@ -16,9 +16,9 @@
 </head>
 <body>
 	<nav class="navbar navbar-dark bg-dark">
-		<span class="navbar-brand">
+		<a href="https://github.com/rDuckDev/WYGIWiki" target="_blank" class="navbar-brand">
 			WYGI<span class="text-warning">Wiki</span>
-		</span>
+		</a>
 	</nav>
 	<textarea id="editor"></textarea>
 	<div class="text-muted text-center my-1">
