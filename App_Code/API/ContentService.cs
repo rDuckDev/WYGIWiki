@@ -3,6 +3,7 @@ using System.IO;
 using System.Diagnostics;
 using System.Web;
 using System.Text;
+using System.Text.RegularExpressions;
 
 public class ContentService : IContentService
 {
@@ -43,6 +44,7 @@ public class ContentService : IContentService
 		cmd.Close();
 
 		output = output.Replace("{|", "{| class=\"wikitable\"");
+		output = new Regex("(width=.{0,12}[|] )").Replace(output, " ");
 
 		File.Delete(filePath);
 
