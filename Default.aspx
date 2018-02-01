@@ -31,7 +31,7 @@
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/ckeditor@4.8.0/ckeditor.js"></script>
 	<script type="text/javascript">
-		CKEDITOR.plugins.addExternal("wygiwiki", "/plugins/wygiwiki/", "plugin.min.js");
+		CKEDITOR.plugins.addExternal("wygiwiki", "/plugins/wygiwiki/", "plugin.min.js?v5");
 		jQuery.ajaxSetup({
 			type: "POST",
 			dataType: "json",
