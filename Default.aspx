@@ -52,10 +52,10 @@
 
 			DOM.wikiURL = jQuery("#wikiURL");
 			DOM.editor = CKEDITOR.replace("editor", {
+				skin: "moono",
+				extraPlugins: "wygiwiki",
 				format_nowiki: { name: "No wiki", element: "nowiki" }, // <nowiki>
 				format_tags: "p;h2;h3;h4;nowiki",
-				extraPlugins: "wygiwiki",
-				skin: "moono",
 				removeButtons: "",
 				toolbar: [
 					[ "Undo", "Redo"],
