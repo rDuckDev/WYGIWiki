@@ -41,9 +41,13 @@
 		(function () {
 			"use strict";
 
-			CKEDITOR.replace("editor", {
 				removeButtons: "",
 				customValues: { convert_url: "/api/content.svc/ConvertContent" },
+			const EDITOR_KEY = "EditorContent";
+
+			var DOM = {};
+
+			DOM.editor = CKEDITOR.replace("editor", {
 				format_nowiki: { name: "No wiki", element: "nowiki" }, // <nowiki>
 				format_tags: "p;h2;h3;h4;nowiki",
 				extraPlugins: "wygiwiki",
@@ -60,7 +64,12 @@
 				height: "500px"
 			});
 
-			jQuery(window).on("beforeunload", function () { return "Content you entered will not be saved."; });
+			jQuery(document).ready(function () {
+				DOM.editor.setData(localStorage.getItem(EDITOR_KEY));
+			});
+			jQuery(window).on("beforeunload", function () {
+				localStorage.setItem(EDITOR_KEY, DOM.editor.getData());
+			});
 		} ());
 	</script>
 </body>
