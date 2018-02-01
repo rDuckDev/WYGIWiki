@@ -3,7 +3,7 @@
 
 	var DOM = {};
 
-	const dialogTitle = "Convert markup";
+	const dialogTitle = "WYGIWiki";
 
 	// dialog controls
 	var wikiOutput = { type: "textarea", id: "wikiOutput", rows: 20, cols: 30 },
@@ -75,7 +75,7 @@
 			}],
 			onLoad: function () { DOM.dialog = this._; },
 			onShow: convertContent,
-			buttons: [ CKEDITOR.dialog.okButton ]
+			buttons: []
 		}
 	});
 } ());
