@@ -32,7 +32,6 @@ This project is not a replacement for powerful extensions like [VisualEditor](ht
 * [MediaWiki](https://www.mediawiki.org/wiki/MediaWiki): markup
 * [Pandoc](http://pandoc.org/): markup conversion
 * [CKEditor 4](https://ckeditor.com/ckeditor-4/): WYSIWYG editor
-* [BootstrapCK4-Skin](https://github.com/Kunstmaan/BootstrapCK4-Skin) by Kunstmaan: CKEditor skin
 * [Bootstrap 4](http://getbootstrap.com/): UI and theme
 * [WikiEditor](https://www.mediawiki.org/wiki/Extension:WikiEditor): UI inspiration
 * [jQuery](http://jquery.com/): Ajax and keeping things simple

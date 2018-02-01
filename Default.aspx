@@ -11,7 +11,6 @@
 	<title>WYGIWiki</title>
 
 	<style>
-		.cke_dialog_ui_input_textarea { height: 330px !important; }
 		.cke_button__wygiwiki_label { display: inline !important; }
 	</style>
 </head>
@@ -47,7 +46,6 @@
 				removeButtons: "",
 				customValues: { convert_url: "/api/content.svc/ConvertContent" },
 				extraPlugins: "wygiwiki",
-				skin: "bootstrapck,https://cdn.jsdelivr.net/gh/Kunstmaan/BootstrapCK4-Skin@1.0.0/skins/bootstrapck/",
 				toolbar: [
 					[ "Undo", "Redo"],
 					[ "Cut", "Copy", "Paste", "PasteText" ],
