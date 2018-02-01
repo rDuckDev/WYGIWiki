@@ -44,7 +44,6 @@
 		(function () {
 			"use strict";
 
-				removeButtons: "",
 			const EDITOR_KEY = "EditorContent",
 				URL_KEY = "WikiURL",
 				defaultWikiURL = "en.wikipedia.org/wiki/Main_Page";
@@ -57,6 +56,7 @@
 				format_tags: "p;h2;h3;h4;nowiki",
 				extraPlugins: "wygiwiki",
 				skin: "moono",
+				removeButtons: "",
 				toolbar: [
 					[ "Undo", "Redo"],
 					[ "Cut", "Copy", "Paste", "PasteText" ],
@@ -70,6 +70,7 @@
 					api_url: "/api/content.svc/ConvertContent",
 					wiki_url: localStorage.getItem(URL_KEY) || defaultWikiURL
 				},
+				dialog_noConfirmCancel: true,
 				height: "500px"
 			});
 
