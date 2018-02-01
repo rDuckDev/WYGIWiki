@@ -42,9 +42,10 @@
 			"use strict";
 
 			CKEDITOR.replace("editor", {
-				format_tags: "p;h2;h3;h4",
 				removeButtons: "",
 				customValues: { convert_url: "/api/content.svc/ConvertContent" },
+				format_nowiki: { name: "No wiki", element: "nowiki" }, // <nowiki>
+				format_tags: "p;h2;h3;h4;nowiki",
 				extraPlugins: "wygiwiki",
 				skin: "moono",
 				toolbar: [

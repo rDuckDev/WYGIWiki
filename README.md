@@ -21,7 +21,6 @@ This project is not a replacement for powerful extensions like [VisualEditor](ht
 * Unsupported
   * {{templates}}
   * gallery
-  * nowiki
   * etc.
 * Tables
   *  *Must* have equal rows and columns

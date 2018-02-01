@@ -17,6 +17,10 @@ public class ContentService : IContentService
 	{
 		if (String.IsNullOrEmpty(obj.htmlContent)) return "";
 
+		// preserve <nowiki>
+		obj.htmlContent = obj.htmlContent.Replace("<nowiki>", "_nowiki_");
+		obj.htmlContent = obj.htmlContent.Replace("</nowiki>", "_/nowiki_");
+
 		string fileName = String.Format("{0}.txt", Guid.NewGuid().ToString());
 		string fileDirectory = HttpContext.Current.Server.MapPath("~/temp");
 		string filePath = String.Concat(fileDirectory, "\\", fileName);
@@ -45,6 +49,9 @@ public class ContentService : IContentService
 
 		output = output.Replace("{|", "{| class=\"wikitable\"");
 		output = new Regex("(width=.{0,12}[|] )").Replace(output, " ");
+		// revive <nowiki>
+		output = output.Replace("_nowiki_", "<nowiki>");
+		output = output.Replace("_/nowiki_", "</nowiki>");
 
 		File.Delete(filePath);
 
