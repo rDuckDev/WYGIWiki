@@ -7,7 +7,7 @@
 
 	// dialog controls
 	var wikiOutput = { type: "textarea", id: "wikiOutput", rows: 20, cols: 30 },
-		loadingMessage = { type: "html", id: "loadingMessage", html: "<span><img src='/plugins/wygiwiki/icons/spinner.gif' style='width:12px;height:12px;' /> Loading</span>" };
+		loadingMessage = { type: "html", id: "loadingMessage", html: "<span><img src='/plugins/wygiwiki/icons/spinner.gif' style='width:12px;height:12px;' /> Converting</span>" };
 
 	function formatWikiURL (url) {
 		// tweak the URL for easier regex matching of internal links
