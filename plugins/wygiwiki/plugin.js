@@ -50,9 +50,12 @@
 		}).done(function (data) {
 			var value = data.ConvertContentResult;
 
-			currentDialog.convertContent.loadingMessage.getElement().hide();
-
 			currentDialog.convertContent.wikiOutput.setValue(value);
+		}).fail(function () {
+			currentDialog.convertContent.wikiOutput.setValue("Your content could not be converted.\n\n" +
+				"Please double check your network connection and try again.");
+		}).always(function () {
+			currentDialog.convertContent.loadingMessage.getElement().hide();
 		});
 	}
 	CKEDITOR.plugins.add("wygiwiki", {
